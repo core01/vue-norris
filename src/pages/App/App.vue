@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <img src="@/assets/chuk.gif" class="dance">
+    <img src="@/assets/chuk.gif" class="dance" alt="">
     <ButtonComponent title="Получить шутку" v-on:handleClick="getJoke"/>
     <ButtonComponent title="Авто-шутки" button-type="secondary" v-on:handleClick="getAutoJoke"/>
-    <JokeBox :title="joke.value" :poster="joke.icon_url"/>
+    <JokeBoxComponent :title="joke.value" :poster="joke.icon_url"/>
     <div v-if="error.length > 0" class="error">
       {{ error }}
     </div>
@@ -12,8 +12,8 @@
 
 <script>
   import { mapActions, mapGetters } from 'vuex';
-  import Button from '@/components/Button';
-  import JokeBox from '@/components/JokeBox';
+  import ButtonComponent from '@/components/Button';
+  import JokeBoxComponent from '@/components/JokeBox';
 
   export default {
     name: 'App',
@@ -23,8 +23,8 @@
       };
     },
     components: {
-      ButtonComponent: Button,
-      JokeBox,
+      ButtonComponent,
+      JokeBoxComponent,
     },
     methods: {
       ...mapActions({
